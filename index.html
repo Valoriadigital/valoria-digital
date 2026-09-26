@@ -1573,11 +1573,425 @@ body.cursor-hover .mouse-glow{opacity:1}
 .print-list .print-item-link::after{content:"↗";opacity:.45;transition:.25s ease}
 .print-list .print-item-link:hover::after{opacity:1;transform:translate(3px,-3px)}
 </style>
+
+<style id="vd-mobile-optimization-v43">
+/* V43 — mobile layout cleanup: fixed widgets never cover the universe objects/content */
+@media (max-width: 560px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+
+  /* Keep the cosmic motion lighter on phones; the dedicated Universe stage remains the visual focus. */
+  .roaming-planets{opacity:.30}
+  .roam-orbit{opacity:.55}
+  .roam-5,.roam-8{opacity:.22}
+  .cosmic-zoom{display:none!important}
+
+  /* Header / Universe navigation */
+  nav{height:76px;min-height:76px;padding:14px 18px;position:relative;z-index:50}
+  .logo img{max-width:205px;height:auto}
+  nav>a[href="#valoria-universe"]{font-size:18px;white-space:nowrap}
+
+  /* The Universe itself gets predictable mobile spacing. */
+  .vd-universe{min-height:1320px;padding:92px 14px 110px;overflow:hidden}
+  .vd-universe-intro{max-width:340px}
+  .vd-universe-intro h2{font-size:clamp(42px,14vw,58px);letter-spacing:-.065em}
+  .vd-universe-intro p{font-size:11px;line-height:1.55}
+  .vd-orbit-stage{height:980px;margin-top:10px;overflow:hidden}
+  .vd-space-object{transform:scale(.58);transform-origin:center center}
+  .vd-poster{left:-9%;top:15%}
+  .vd-led{right:-12%;top:17%}
+  .vd-neon{left:-13%;top:46%}
+  .vd-brochure{right:-14%;top:47%}
+  .vd-artboard{left:27%;top:29%}
+  .vd-standee{left:6%;bottom:5%}
+  .vd-cards{right:-2%;bottom:10%}
+  .vd-phone{left:41%;bottom:2%}
+  .vd-universe-core{width:112px;height:112px}
+  .vd-core-logo img{width:76px!important;max-width:76px;max-height:44px}
+
+  /* Mobile AI launcher: compact mascot only, so it never sits on top of a service card. */
+  .vd-ai-entry{
+    right:12px!important;left:auto!important;bottom:12px!important;
+    width:58px!important;height:58px!important;min-width:58px;
+    padding:0!important;display:flex;justify-content:center;align-items:center;
+    gap:0;border-radius:50%;
+  }
+  .vd-entry-label{display:none!important}
+  .vd-entry-mascot{flex:0 0 48px!important;width:48px!important;height:48px!important;transform:none!important}
+  .vma-body{left:4px;top:4px;width:40px;height:40px}
+  .vma-eye{top:17px;width:4px;height:6px}
+  .vma-eye.e1{left:12px}.vma-eye.e2{right:12px}
+  .vma-smile{left:17px;top:27px;width:10px}
+  .vma-pencil{right:-1px;bottom:-1px;font-size:17px}
+
+  /* Open chat stays inside the phone viewport and respects the safe area. */
+  .vd-hero-ai{
+    left:10px!important;right:10px!important;top:10px!important;bottom:auto!important;
+    width:auto!important;height:auto!important;
+    max-height:calc(100dvh - 20px)!important;
+    min-height:0!important;padding:14px!important;border-radius:22px!important;
+    z-index:100000!important;
+  }
+  .vd-hero-ai-chatlog{min-height:80px;max-height:calc(100dvh - 285px);margin-top:3px}
+  .vd-hero-ai-quick button{padding:9px 11px;font-size:11px}
+  .vd-ai-intro-line{margin:14px 0 6px;padding-bottom:9px}
+  .vd-ai-intro-line strong{font-size:16px}
+  .valo-bubble p{font-size:14px;line-height:1.45}
+  .vd-hero-ai-input input{font-size:15px}
+
+  /* Voice service popup becomes a tiny non-blocking chip on phones. */
+  #vdVoicePopup{
+    left:12px!important;right:auto!important;bottom:12px!important;
+    width:auto!important;max-width:155px!important;
+    padding:8px 10px!important;border-radius:12px!important;
+  }
+  #vdVoicePopup .vd-vp-kicker{font-size:6px;margin-bottom:3px}
+  #vdVoicePopup .vd-vp-title{font-size:10px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #vdVoicePopup .vd-vp-text,#vdVoicePopup::after{display:none!important}
+
+  /* Keep the ambient control out of the service content area. */
+  .music-toggle{right:82px!important;left:auto!important;bottom:12px!important;padding:8px 10px!important;font-size:7px!important}
+
+  /* Prevent fixed/depth decorations from intercepting mobile taps. */
+  .mouse-glow,.floating-shape,.floating-line,.side-graphic,.interaction-note{pointer-events:none!important}
+
+  /* Printing/service cards need breathing room below the floating controls. */
+  .print-section,.cta{padding-bottom:125px!important}
+}
+
+@media (max-width: 390px){
+  nav{padding-left:14px;padding-right:14px}
+  .logo img{max-width:175px}
+  nav>a[href="#valoria-universe"]{font-size:16px}
+  .vd-universe{min-height:1260px;padding-left:10px;padding-right:10px}
+  .vd-orbit-stage{height:930px}
+  .vd-space-object{transform:scale(.52)}
+  .vd-ai-entry{right:10px!important;bottom:10px!important}
+  #vdVoicePopup{left:10px!important;bottom:10px!important;max-width:140px!important}
+  .music-toggle{right:76px!important;bottom:10px!important}
+}
+</style>
+
+<style id="vd-device-optimization">
+/* V44 — phone / tablet / laptop / desktop cleanup */
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+img,video,canvas{max-width:100%}
+button,a,input{touch-action:manipulation}
+
+/* Ambient control belongs to the page, never on top of the open chatbot. */
+body.vd-ai-is-open .music-toggle{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateY(12px)!important}
+.music-toggle{transition:opacity .22s ease,visibility .22s ease,transform .22s ease;z-index:9990!important}
+
+/* WhatsApp/contact actions: comfortable touch targets on every device. */
+.vd-contact-whatsapp,.vd-contact-justdial,.vd-ai-contact-actions a,
+.vcs-contact-buttons a,.vcs-support-team{
+  min-height:44px;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+.vd-contact-whatsapp,.vd-contact-justdial{display:flex;align-items:center;justify-content:center;gap:8px}
+.vd-ai-contact-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* Large screens / laptops */
+@media (min-width:901px){
+  .vd-hero-ai{
+    max-height:calc(100dvh - 40px);
+    top:20px;
+    bottom:20px;
+    height:min(720px,calc(100dvh - 40px));
+  }
+}
+
+/* Tablets / small laptops */
+@media (min-width:561px) and (max-width:900px){
+  .vd-hero-ai{
+    right:16px!important;
+    top:16px!important;
+    bottom:16px!important;
+    width:min(560px,calc(100vw - 32px))!important;
+    height:min(760px,calc(100dvh - 32px))!important;
+    max-height:none!important;
+  }
+  .vd-ai-entry{right:16px!important;bottom:16px!important}
+  .music-toggle{right:16px!important;bottom:16px!important}
+  .vd-ai-contact-actions a,.vcs-contact-buttons a{font-size:12px;min-height:46px}
+}
+
+/* Phones */
+@media (max-width:560px){
+  .vd-hero-ai{
+    left:10px!important;
+    right:10px!important;
+    top:10px!important;
+    bottom:10px!important;
+    width:auto!important;
+    height:calc(100dvh - 20px)!important;
+    max-height:none!important;
+    min-height:0!important;
+    padding:14px!important;
+    border-radius:24px!important;
+  }
+  .vd-hero-ai-head{gap:9px}
+  .vd-mascot-small{width:48px;height:48px;flex-basis:48px}
+  .vd-hero-ai-title div{font-size:13px!important;letter-spacing:.12em}
+  .vd-hero-ai-title small{font-size:7px!important}
+  .vd-ai-close{width:38px;height:38px;flex:0 0 38px}
+  .vd-ai-intro-line{margin-top:13px}
+  .vd-hero-ai-chatlog{min-height:0;flex:1;overflow-y:auto;padding-right:2px}
+  .vd-ai-inputbar{margin-top:8px}
+  .vd-ai-inputbar input{font-size:14px!important}
+
+  /* Compact launcher when chatbot is closed. */
+  .vd-ai-entry{
+    right:10px!important;
+    bottom:max(10px,env(safe-area-inset-bottom))!important;
+    width:auto!important;
+    max-width:calc(100vw - 20px)!important;
+    min-height:62px;
+    padding:8px 12px 8px 8px!important;
+    gap:9px!important;
+    border-radius:20px!important;
+  }
+  .vd-entry-mascot{flex:0 0 54px!important;width:54px!important;height:54px!important;transform:none!important}
+  .vd-entry-label strong{font-size:14px!important}
+  .vd-entry-label small{font-size:9px!important}
+
+  /* Voice chip and ambient control occupy separate bottom corners. */
+  #vdVoicePopup{
+    left:10px!important;
+    right:auto!important;
+    bottom:max(10px,env(safe-area-inset-bottom))!important;
+    max-width:145px!important;
+    z-index:9000!important;
+  }
+  .music-toggle{
+    right:10px!important;
+    left:auto!important;
+    bottom:max(10px,env(safe-area-inset-bottom))!important;
+    z-index:9990!important;
+    padding:9px 11px!important;
+    font-size:8px!important;
+  }
+
+  /* Main visible support chat stays inside the viewport on phones. */
+  .valoria-chat-scene{padding:70px 10px 105px!important}
+  .vcs-shell{border-radius:22px!important}
+  .vcs-side{padding:24px!important;min-height:245px!important}
+  .vcs-side-copy h3{font-size:25px!important}
+  .vcs-chat{min-height:0!important}
+  .vcs-chat-head{height:64px;flex-basis:64px;padding:0 14px}
+  .vcs-messages{min-height:300px;max-height:none;padding:18px 12px}
+  .vcs-bubble p{font-size:14px}
+  .vcs-options button{min-height:42px;padding:9px 12px;font-size:11px}
+  .vcs-input-wrap{margin:0 10px}
+  .vcs-contact-buttons{grid-template-columns:1fr!important}
+  .vcs-contact-buttons a{width:100%;min-height:46px}
+  .vcs-inline-contact{width:calc(100% - 2px)!important}
+
+  /* WhatsApp/JustDial buttons never overflow narrow screens. */
+  .vd-ai-contact-actions{grid-template-columns:1fr!important;gap:8px}
+  .vd-ai-contact-actions a{width:100%;min-height:46px;font-size:11px!important}
+  .vd-contact-whatsapp,.vd-contact-justdial{width:100%}
+}
+
+/* Very small phones */
+@media (max-width:390px){
+  .vd-hero-ai{left:7px!important;right:7px!important;top:7px!important;bottom:7px!important;height:calc(100dvh - 14px)!important;padding:12px!important}
+  .vd-hero-ai-title small{display:none}
+  .vd-ai-intro-line strong{font-size:16px!important}
+  .vd-hero-ai-quick button{padding:8px 10px!important;font-size:10px!important}
+  .vd-ai-entry{right:7px!important;bottom:max(7px,env(safe-area-inset-bottom))!important}
+  .music-toggle{right:7px!important;bottom:max(7px,env(safe-area-inset-bottom))!important}
+  #vdVoicePopup{left:7px!important;bottom:max(7px,env(safe-area-inset-bottom))!important}
+}
+</style>
+
+
+<style id="vd-ai-toggle-final">
+/* V45 — clear AI open/close control across phone, tablet and laptop */
+.vd-ai-entry{
+  z-index:10050!important;
+  width:286px!important;
+  min-height:82px!important;
+  padding:10px 16px 10px 10px!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  cursor:pointer!important;
+  user-select:none!important;
+  -webkit-user-select:none!important;
+  border-radius:22px!important;
+  border:1px solid rgba(157,130,255,.62)!important;
+  background:linear-gradient(145deg,rgba(24,18,54,.97),rgba(5,5,17,.97))!important;
+  box-shadow:0 16px 45px rgba(0,0,0,.48),0 0 28px rgba(111,78,255,.18)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;
+}
+.vd-ai-entry:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(184,164,255,.9)!important;
+  box-shadow:0 20px 52px rgba(0,0,0,.55),0 0 36px rgba(111,78,255,.28)!important;
+}
+.vd-ai-entry:active{transform:scale(.98)!important}
+.vd-entry-mascot{
+  flex:0 0 60px!important;width:60px!important;height:60px!important;
+}
+.vd-entry-label{min-width:0!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.vd-entry-label .vd-entry-kicker{font-size:8px!important;letter-spacing:.19em!important;opacity:.72}
+.vd-entry-label strong{font-size:17px!important;line-height:1.15!important;white-space:nowrap!important}
+.vd-entry-label small{font-size:10px!important;line-height:1.3!important;margin-top:4px!important;color:#aaa3c1!important}
+.vd-entry-label strong i{font-style:normal;color:#aa96ff;margin-left:4px}
+
+/* Make the actual close control unmistakable */
+.vd-ai-close{
+  width:42px!important;height:42px!important;
+  flex:0 0 42px!important;
+  border-radius:12px!important;
+  border:1px solid rgba(195,180,255,.25)!important;
+  background:rgba(255,255,255,.06)!important;
+  font-size:27px!important;line-height:1!important;
+  color:#d8d0ef!important;
+  cursor:pointer!important;
+}
+.vd-ai-close:hover{background:rgba(157,130,255,.16)!important;border-color:rgba(195,180,255,.55)!important}
+
+/* Never let ambient/audio sit over the AI toggle. */
+.music-toggle{z-index:9990!important}
+body.vd-ai-is-open .vd-ai-entry{display:none!important}
+
+@media (min-width:561px) and (max-width:900px){
+  .vd-ai-entry{right:16px!important;bottom:16px!important;width:270px!important;min-height:78px!important}
+  .vd-entry-mascot{flex-basis:56px!important;width:56px!important;height:56px!important}
+}
+
+@media (max-width:560px){
+  .vd-ai-entry{
+    right:12px!important;
+    bottom:max(12px,env(safe-area-inset-bottom))!important;
+    width:calc(100vw - 24px)!important;
+    max-width:330px!important;
+    min-height:76px!important;
+    padding:9px 13px 9px 9px!important;
+    border-radius:21px!important;
+  }
+  .vd-entry-mascot{flex:0 0 56px!important;width:56px!important;height:56px!important}
+  .vd-entry-label .vd-entry-kicker{font-size:7px!important}
+  .vd-entry-label strong{font-size:16px!important}
+  .vd-entry-label small{font-size:9px!important}
+}
+
+@media (max-width:390px){
+  .vd-ai-entry{right:9px!important;bottom:max(9px,env(safe-area-inset-bottom))!important;width:calc(100vw - 18px)!important;min-height:72px!important}
+  .vd-entry-mascot{flex-basis:52px!important;width:52px!important;height:52px!important}
+  .vd-entry-label strong{font-size:15px!important}
+}
+</style>
+
+
+<style id="vd-v47-right-center-fix">
+/* V47 — AI launcher: right side, vertically centered, slightly below center */
+.vd-ai-entry{
+  position:fixed!important;
+  right:18px!important;
+  left:auto!important;
+  top:56%!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+  z-index:100001!important;
+}
+.vd-ai-entry:hover{transform:translateY(calc(-50% - 2px))!important}
+body.vd-ai-is-open .vd-ai-entry{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+
+/* Open chatbot stays safely inside the viewport */
+.vd-hero-ai{max-width:calc(100vw - 36px)!important;box-sizing:border-box!important}
+
+/* Tablet */
+@media (min-width:561px) and (max-width:900px){
+  .vd-ai-entry{right:18px!important;top:56%!important;bottom:auto!important}
+  .vd-hero-ai{right:18px!important;left:auto!important;width:min(560px,calc(100vw - 36px))!important}
+}
+
+/* Phone */
+@media (max-width:560px){
+  .vd-ai-entry{
+    right:14px!important;
+    left:auto!important;
+    top:57%!important;
+    bottom:auto!important;
+    width:min(270px,calc(100vw - 28px))!important;
+    min-height:64px!important;
+    max-width:calc(100vw - 28px)!important;
+    padding:8px 12px 8px 8px!important;
+    transform:translateY(-50%)!important;
+  }
+  .vd-ai-entry:hover{transform:translateY(calc(-50% - 2px))!important}
+  .vd-entry-mascot{width:54px!important;height:54px!important;flex-basis:54px!important}
+  .vd-entry-label{min-width:0!important}
+  .vd-entry-label strong{font-size:14px!important;white-space:nowrap}
+  .vd-entry-label small{font-size:9px!important;white-space:nowrap}
+}
+
+/* Very small phones */
+@media (max-width:390px){
+  .vd-ai-entry{right:10px!important;top:57%!important;width:min(250px,calc(100vw - 20px))!important;max-width:calc(100vw - 20px)!important}
+  .vd-entry-mascot{width:50px!important;height:50px!important;flex-basis:50px!important}
+  .vd-entry-label strong{font-size:13px!important}
+  .vd-entry-label small{font-size:8px!important}
+}
+
+/* Laptop/Desktop */
+@media (min-width:901px){
+  .vd-ai-entry{right:24px!important;top:56%!important;bottom:auto!important}
+}
+</style>
 </head>
 
 <body id="top">
 
 <!-- ================= VALORIA DIGITAL AI CHATBOT V33 ================= -->
+
+<style id="vd-v46-centered-ai">
+/* V46 — AI launcher centered slightly below screen center on every device. */
+.vd-ai-entry{
+  position:fixed!important;
+  left:50%!important;
+  right:auto!important;
+  top:58%!important;
+  bottom:auto!important;
+  transform:translate(-50%,-50%)!important;
+  width:min(300px,calc(100vw - 32px))!important;
+  min-height:76px!important;
+  padding:9px 14px 9px 9px!important;
+  z-index:100001!important;
+}
+.vd-ai-entry:hover{transform:translate(-50%,-50%) translateY(-2px)!important}
+@media (max-width:900px){
+  .vd-ai-entry{width:min(290px,calc(100vw - 28px))!important;top:58%!important}
+}
+@media (max-width:560px){
+  .vd-ai-entry{
+    left:50%!important;right:auto!important;
+    top:58%!important;bottom:auto!important;
+    width:min(270px,calc(100vw - 28px))!important;
+    min-height:72px!important;
+    padding:8px 12px 8px 8px!important;
+    border-radius:20px!important;
+    transform:translate(-50%,-50%)!important;
+  }
+  .vd-ai-entry:hover{transform:translate(-50%,-50%)!important}
+  .vd-entry-mascot{flex:0 0 54px!important;width:54px!important;height:54px!important}
+  .vd-entry-label strong{font-size:14px!important}
+  .vd-entry-label small{font-size:9px!important}
+}
+@media (max-width:390px){
+  .vd-ai-entry{top:58%!important;width:min(258px,calc(100vw - 24px))!important;min-height:68px!important}
+}
+/* The ambient control remains in its own bottom corner; it never shares the AI launcher's position. */
+.vd-ai-entry + *{ }
+</style>
 <div id="vdAiEntry" class="vd-ai-entry" role="button" tabindex="0" aria-label="Open Valoria AI Chatbot">
   <div class="vd-entry-mascot" aria-hidden="true">
     <div class="vma-shadow"></div>
@@ -1708,6 +2122,7 @@ body.cursor-hover .mouse-glow{opacity:1}
   let turns=0;
 
   function openChat(){
+    document.body.classList.add('vd-ai-is-open');
     entry.classList.add('hidden');
     box.classList.add('open');
     box.classList.remove('minimized');
@@ -1717,6 +2132,7 @@ body.cursor-hover .mouse-glow{opacity:1}
 entry.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openChat()}});
 
   close.onclick=()=>{
+    document.body.classList.remove('vd-ai-is-open');
     box.classList.remove('open');
     box.classList.remove('minimized');
     entry.classList.remove('hidden');
@@ -3741,6 +4157,59 @@ function vdSay(text){
 })();
 </script>
 <!-- ================= END VISIBLE VALORIA CHATBOT SCENE ================= -->
+
+
+<style id="vd-v48-right-center-final">
+/* V48 — final AI launcher position: RIGHT side, vertically centered, never horizontally centered. */
+.vd-ai-entry{
+  position:fixed!important;
+  left:auto!important;
+  right:clamp(12px,2.2vw,30px)!important;
+  top:56%!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+  z-index:100050!important;
+  width:min(286px,calc(100vw - 36px))!important;
+}
+.vd-ai-entry:hover{transform:translateY(calc(-50% - 2px))!important}
+
+/* Tablet */
+@media (min-width:561px) and (max-width:900px){
+  .vd-ai-entry{
+    left:auto!important;
+    right:18px!important;
+    top:56%!important;
+    width:min(270px,calc(100vw - 36px))!important;
+  }
+}
+
+/* Phone */
+@media (max-width:560px){
+  .vd-ai-entry{
+    left:auto!important;
+    right:12px!important;
+    top:57%!important;
+    bottom:auto!important;
+    width:min(270px,calc(100vw - 24px))!important;
+    min-height:64px!important;
+    max-width:calc(100vw - 24px)!important;
+    transform:translateY(-50%)!important;
+  }
+  .vd-ai-entry:hover{transform:translateY(calc(-50% - 2px))!important}
+}
+
+/* Very small phones */
+@media (max-width:390px){
+  .vd-ai-entry{
+    right:9px!important;
+    top:57%!important;
+    width:min(258px,calc(100vw - 18px))!important;
+  }
+}
+
+/* Keep the ambient control independent from the AI launcher. */
+body.vd-ai-is-open .vd-ai-entry{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+</style>
 
 </body>
 </html>
