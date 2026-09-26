@@ -1307,6 +1307,49 @@ header{
   .cosmic-zoom{display:none}
 }
 
+
+/* V13 — one What We Do section only; service work opens in one overlay */
+.vd-what{position:relative;z-index:8;max-width:1320px;margin:0 auto;padding:130px 5vw 100px}
+.vd-what-head{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:42px}
+.vd-what-kicker{font:600 9px Arial,sans-serif;letter-spacing:.3em;color:#8dbbd6}
+.vd-what-head h2{font-size:clamp(50px,7vw,100px);line-height:.86;letter-spacing:-.06em;margin:14px 0 0;color:#f4f8fb}
+.vd-what-head h2,.vd-what-card strong,.vd-service-panel h2{word-spacing:.08em}
+.vd-what-head h2 em{font-style:normal;color:#82b2cf}
+.vd-what-head p{color:#9bb3c4;font-size:13px;margin:0}
+.vd-what-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.vd-what-card{min-height:270px;text-align:left;padding:22px;background:rgba(4,12,18,.58);border:1px solid rgba(145,193,220,.16);color:#f4f8fb;cursor:pointer;display:flex;flex-direction:column;transition:.3s}
+.vd-what-card:hover{transform:translateY(-7px);border-color:rgba(151,214,241,.43);box-shadow:0 25px 70px rgba(20,100,140,.12)}
+.vd-what-card span{font:600 8px Arial;color:#718fa2;letter-spacing:.18em}
+.vd-what-card strong{font-size:25px;letter-spacing:-.04em;margin-top:auto}
+.vd-what-card small{color:#92aebe;font-size:11px;line-height:1.5;margin:10px 0 22px}
+.vd-what-card b{font:600 8px Arial;color:#91c5df;letter-spacing:.18em}
+.vd-links{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:28px;padding-top:18px;border-top:1px solid rgba(145,193,220,.12)}
+.vd-link{color:#b9d9e8;text-decoration:none;font:600 8px Arial;letter-spacing:.15em;border:1px solid rgba(145,195,222,.2);background:rgba(4,13,19,.65);padding:11px 14px;border-radius:999px;transition:.25s}
+.vd-link:hover{color:#fff;transform:translateY(-2px);border-color:rgba(160,217,240,.5)}
+.vd-link.justdial,.vd-link.instagram{border-color:rgba(157,211,236,.35);background:rgba(11,35,48,.72)}
+.vd-service-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:25px}
+.vd-service-modal.open{display:flex}
+.vd-service-backdrop{position:absolute;inset:0;background:rgba(0,3,7,.82);backdrop-filter:blur(18px)}
+.vd-service-panel{position:relative;width:min(1050px,95vw);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#081720,#02070b);border:1px solid rgba(153,207,234,.24);padding:40px;box-shadow:0 40px 140px rgba(0,0,0,.8)}
+.vd-service-close{position:absolute;right:18px;top:10px;background:none;border:0;color:#abc5d5;font-size:32px;cursor:pointer}
+#vdServiceKicker{font:600 8px Arial;letter-spacing:.27em;color:#8fc5df}
+.vd-service-panel h2{font-size:clamp(44px,6vw,82px);line-height:.9;letter-spacing:-.06em;margin:13px 0}
+.vd-service-panel>p{max-width:680px;color:#9db5c6;line-height:1.7;margin-bottom:25px}
+.vd-service-projects{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.vd-demo-project{min-height:230px;position:relative;overflow:hidden;border:1px solid rgba(150,200,225,.14);background:#071018}
+.vd-demo-project .demo-art{position:absolute;inset:0}
+.vd-demo-project label{position:absolute;left:12px;bottom:12px;padding:7px 9px;background:rgba(2,7,11,.76);color:#d9edf7;font:600 8px Arial;letter-spacing:.15em}
+.demo-a{background:radial-gradient(circle at 70% 25%,#285875,transparent 35%),linear-gradient(135deg,#0c1820,#020508)}
+.demo-b{background:radial-gradient(circle at 35% 65%,#6d477e,transparent 32%),linear-gradient(135deg,#11121d,#03070b)}
+.demo-c{background:radial-gradient(circle at 50% 40%,#397c80,transparent 30%),linear-gradient(135deg,#07191c,#030608)}
+.demo-d{background:linear-gradient(145deg,#142c3c,#04080b 65%)}
+.demo-e{background:radial-gradient(circle at 65% 35%,#9a7145,transparent 27%),linear-gradient(135deg,#1d1711,#05080a)}
+.demo-f{background:linear-gradient(120deg,#09202d,#31536a 48%,#020507)}
+.demo-a:after,.demo-b:after,.demo-c:after,.demo-d:after,.demo-e:after,.demo-f:after{content:"";position:absolute;width:55%;height:55%;left:23%;top:20%;border:1px solid rgba(220,240,250,.2);transform:rotate(-10deg)}
+.vd-service-wa{display:inline-block;margin-top:24px;color:#eaf7fd;text-decoration:none;border:1px solid rgba(153,213,239,.34);background:#0a2534;padding:13px 16px;border-radius:999px;font:600 8px Arial;letter-spacing:.13em}
+@media(max-width:900px){.vd-what-head{display:block}.vd-what-head p{margin-top:18px}.vd-what-grid{grid-template-columns:repeat(2,1fr)}.vd-service-projects{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.vd-what{padding:95px 20px 65px}.vd-what-grid{grid-template-columns:1fr}.vd-what-card{min-height:220px}.vd-service-projects{grid-template-columns:1fr}.vd-service-panel{padding:30px 20px}.vd-links{justify-content:flex-start}}
+
 </style>
 </head>
 
@@ -1563,8 +1606,9 @@ header{
     </p>
 
     <div class="hero-buttons reveal">
-      <!-- Replace these links with your real contact details later -->
-      <a href="https://wa.me/" class="btn magnetic">WhatsApp</a>
+      <a href="https://api.whatsapp.com/send?phone=919953429728&text=Hi%20Valoria%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20project." class="btn magnetic">WhatsApp</a>
+      <a href="https://www.justdial.com/Delhi/Valoria-Digital-Shahdara/011PXX11-XX11-211126124027-Q6Y8_BZDET" class="btn magnetic" target="_blank" rel="noopener">Justdial</a>
+      <a href="https://www.instagram.com/valoriadigital/?hl=en" class="btn magnetic" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:hello@valoriadigital.com" class="btn magnetic">Email</a>
     </div>
   </section>
@@ -1981,6 +2025,12 @@ window.addEventListener('mousemove',(e)=>{
   document.documentElement.style.setProperty('--star-dense-y',`${y*-16}px`);
 });
 
+
+;
+
 </script>
+
+
+
 </body>
 </html>
