@@ -4211,5 +4211,219 @@ function vdSay(text){
 body.vd-ai-is-open .vd-ai-entry{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 </style>
 
+
+<style id="vd-v49-device-layout">
+/* V49 — mobile-first Universe spacing + non-blocking AI launcher.
+   The Universe objects get dedicated lanes on small screens so they never pile up. */
+
+/* AI launcher: right-side vertical center, intentionally compact. */
+.vd-ai-entry{
+  position:fixed!important;
+  left:auto!important;
+  right:clamp(12px,2vw,28px)!important;
+  top:58%!important;
+  bottom:auto!important;
+  width:min(230px,calc(100vw - 28px))!important;
+  min-height:64px!important;
+  padding:8px 11px 8px 8px!important;
+  transform:translateY(-50%)!important;
+  z-index:100050!important;
+}
+.vd-ai-entry:hover{transform:translateY(calc(-50% - 2px))!important}
+.vd-entry-mascot{flex:0 0 52px!important;width:52px!important;height:52px!important}
+.vd-entry-label strong{font-size:14px!important}
+.vd-entry-label small{font-size:9px!important}
+
+/* Laptop */
+@media (min-width:901px){
+  .vd-ai-entry{
+    right:26px!important;
+    top:56%!important;
+    width:230px!important;
+  }
+}
+
+/* Tablet */
+@media (min-width:561px) and (max-width:900px){
+  .vd-ai-entry{
+    right:18px!important;
+    top:56%!important;
+    width:220px!important;
+    min-height:62px!important;
+  }
+  .vd-entry-mascot{width:50px!important;height:50px!important;flex-basis:50px!important}
+  .vd-entry-label strong{font-size:13px!important}
+  .vd-entry-label small{font-size:8px!important}
+}
+
+/* Phones — keep the launcher narrow enough that it doesn't cover the main typography. */
+@media (max-width:560px){
+  .vd-ai-entry{
+    right:10px!important;
+    top:60%!important;
+    width:min(214px,calc(100vw - 20px))!important;
+    min-height:58px!important;
+    max-width:214px!important;
+    padding:6px 9px 6px 6px!important;
+    border-radius:18px!important;
+  }
+  .vd-entry-mascot{width:46px!important;height:46px!important;flex-basis:46px!important}
+  .vd-entry-label strong{font-size:12px!important}
+  .vd-entry-label small{font-size:8px!important}
+  .vd-entry-kicker{font-size:6px!important}
+}
+
+/* Very small phones */
+@media (max-width:390px){
+  .vd-ai-entry{
+    right:8px!important;
+    top:60%!important;
+    width:min(202px,calc(100vw - 16px))!important;
+    min-height:56px!important;
+  }
+  .vd-entry-mascot{width:43px!important;height:43px!important;flex-basis:43px!important}
+  .vd-entry-label strong{font-size:11px!important}
+  .vd-entry-label small{font-size:7px!important}
+}
+
+/* ---------------- MOBILE UNIVERSE: clean lanes, no stacking ---------------- */
+@media (max-width:800px){
+  .vd-universe{
+    min-height:1760px!important;
+    padding-top:78px!important;
+    padding-bottom:110px!important;
+  }
+  .vd-universe-intro{
+    max-width:92vw!important;
+    margin:0 auto!important;
+  }
+  .vd-universe-intro h2{
+    font-size:clamp(38px,11.5vw,54px)!important;
+    line-height:.9!important;
+    margin:14px 0!important;
+  }
+  .vd-universe-intro p{
+    max-width:310px!important;
+    font-size:11px!important;
+    line-height:1.55!important;
+  }
+
+  .vd-orbit-stage{
+    height:1420px!important;
+    min-height:1420px!important;
+    max-width:100%!important;
+    margin-top:22px!important;
+    overflow:hidden!important;
+  }
+
+  /* Keep orbital rings decorative rather than crossing every object. */
+  .vd-orbit-a{width:72%!important;height:22%!important;top:22%!important;opacity:.45!important}
+  .vd-orbit-b{width:92%!important;height:30%!important;top:54%!important;opacity:.32!important}
+  .vd-orbit-c{width:105%!important;height:42%!important;top:79%!important;opacity:.25!important}
+
+  .vd-space-object{
+    transform-origin:center center!important;
+    scale:.52!important;
+  }
+
+  /* Top row */
+  .vd-poster{
+    left:2%!important;
+    top:3%!important;
+    width:150px!important;
+  }
+  .vd-led{
+    right:1%!important;
+    top:5%!important;
+    width:185px!important;
+  }
+
+  /* Second row */
+  .vd-artboard{
+    left:26%!important;
+    top:26%!important;
+    width:165px!important;
+  }
+
+  /* Middle row */
+  .vd-neon{
+    left:2%!important;
+    top:47%!important;
+    width:170px!important;
+  }
+  .vd-brochure{
+    right:0%!important;
+    top:49%!important;
+    width:175px!important;
+  }
+
+  /* Bottom row */
+  .vd-standee{
+    left:7%!important;
+    bottom:7%!important;
+    width:92px!important;
+  }
+  .vd-cards{
+    right:3%!important;
+    bottom:10%!important;
+    width:155px!important;
+  }
+  .vd-phone{
+    left:40%!important;
+    bottom:2%!important;
+    width:100px!important;
+  }
+
+  /* Keep the core in its own visual lane, away from the headline objects. */
+  .vd-universe-core{
+    width:108px!important;
+    height:108px!important;
+    top:70%!important;
+    left:50%!important;
+  }
+  .vd-core-logo{
+    width:72px!important;
+    height:42px!important;
+  }
+  .vd-core-logo img{
+    width:72px!important;
+    max-width:72px!important;
+    max-height:42px!important;
+  }
+  .vd-universe-core small{bottom:19px!important;font-size:4px!important}
+  .vd-universe-core em{display:none!important}
+
+  /* Hide depth helpers that make small screens visually busy. */
+  .vd-space-object:after{display:none!important}
+}
+
+/* Extra narrow phones: one more reduction, same clean positions. */
+@media (max-width:390px){
+  .vd-universe{
+    min-height:1690px!important;
+    padding-left:8px!important;
+    padding-right:8px!important;
+  }
+  .vd-orbit-stage{
+    height:1350px!important;
+    min-height:1350px!important;
+  }
+  .vd-space-object{scale:.45!important}
+  .vd-poster{left:0!important;top:3%!important;width:145px!important}
+  .vd-led{right:-2%!important;top:5%!important;width:178px!important}
+  .vd-artboard{left:24%!important;top:26%!important;width:158px!important}
+  .vd-neon{left:0!important;top:47%!important;width:165px!important}
+  .vd-brochure{right:-2%!important;top:49%!important;width:170px!important}
+  .vd-standee{left:4%!important;bottom:7%!important;width:88px!important}
+  .vd-cards{right:0!important;bottom:10%!important;width:148px!important}
+  .vd-phone{left:39%!important;bottom:2%!important;width:96px!important}
+  .vd-universe-core{width:100px!important;height:100px!important;top:70%!important}
+}
+
+/* Don't let the fixed AI launcher cover the contact headline on the smallest screens. */
+@media (max-width:560px){
+  #contact{scroll-margin-top:20px}
+}
+</style>
 </body>
 </html>
