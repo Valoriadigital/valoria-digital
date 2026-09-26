@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="vw5ontbuaU0AzU2v9DhbQx8Ulxy0HVemZcIys4JK32k" />
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYHSX63V73"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FYHSX63V73');
+  </script>
+
 
   <title>Valoria Digital | Graphic Design, Branding, Social Media & Print</title>
   <meta name="description" content="Valoria Digital creates graphic design, branding, social media creatives and premium printing solutions for modern brands.">
@@ -4667,6 +4676,48 @@ body.vd-ai-is-open .music-toggle{
 
   window.addEventListener('pagehide',stopValoriaAudio,{passive:true});
   window.addEventListener('beforeunload',stopValoriaAudio,{passive:true});
+})();
+</script>
+
+
+<script id="vd-ga4-events">
+(function() {
+  if (typeof window.gtag !== 'function') return;
+
+  function track(name, params) {
+    try { window.gtag('event', name, params || {}); } catch (e) {}
+  }
+
+  document.addEventListener('click', function(e) {
+    const el = e.target.closest('a,button');
+    if (!el) return;
+
+    const href = (el.getAttribute('href') || '').toLowerCase();
+    const text = (el.textContent || '').trim().replace(/\s+/g, ' ');
+
+    if (href.includes('wa.me') || href.includes('whatsapp')) {
+      track('whatsapp_click', { link_text: text || 'WhatsApp' });
+    } else if (href.includes('justdial.com')) {
+      track('justdial_click', { link_text: text || 'JustDial' });
+    } else if (href.startsWith('mailto:')) {
+      track('email_click', { link_text: text || 'Email' });
+    } else if (href.includes('instagram.com')) {
+      track('instagram_click', { link_text: text || 'Instagram' });
+    }
+
+    if (el.matches('.vd-ai-entry, [data-chatbot-launch], .vd-chatbot-launch')) {
+      track('chatbot_open');
+    }
+
+    const serviceCard = el.closest('.vd-service, .vd-service-card, .service-card, [data-service]');
+    if (serviceCard) {
+      const serviceName =
+        serviceCard.getAttribute('data-service') ||
+        serviceCard.querySelector('h3,h4,.service-title,.vd-service-title')?.textContent ||
+        text;
+      if (serviceName) track('service_click', { service_name: serviceName.trim().replace(/\s+/g, ' ') });
+    }
+  });
 })();
 </script>
 
