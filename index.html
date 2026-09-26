@@ -4425,5 +4425,251 @@ body.vd-ai-is-open .vd-ai-entry{opacity:0!important;visibility:hidden!important;
   #contact{scroll-margin-top:20px}
 }
 </style>
+
+<!-- V50 FINAL: face-only launcher + contained support contacts + stop audio on page leave -->
+<style id="vd-v50-final-fixes">
+/* Closed chatbot = ONLY the mascot face. Keep it on the right side, around the vertical center. */
+#vdAiEntry.vd-ai-entry{
+  position:fixed!important;
+  left:auto!important;
+  right:24px!important;
+  top:56%!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+  width:72px!important;
+  height:72px!important;
+  min-width:72px!important;
+  min-height:72px!important;
+  padding:0!important;
+  margin:0!important;
+  display:grid!important;
+  place-items:center!important;
+  gap:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  z-index:100001!important;
+  cursor:pointer!important;
+}
+#vdAiEntry.vd-ai-entry:hover{
+  transform:translateY(calc(-50% - 3px))!important;
+}
+#vdAiEntry .vd-entry-label{display:none!important}
+#vdAiEntry .vd-entry-mascot{
+  width:64px!important;
+  height:64px!important;
+  flex:0 0 64px!important;
+  transform:none!important;
+  margin:0!important;
+  pointer-events:none!important;
+}
+#vdAiEntry .vma-body{
+  left:5px!important;
+  top:5px!important;
+  width:54px!important;
+  height:54px!important;
+}
+#vdAiEntry .vma-eye{top:22px!important;width:5px!important;height:7px!important}
+#vdAiEntry .vma-eye.e1{left:16px!important}
+#vdAiEntry .vma-eye.e2{right:16px!important}
+#vdAiEntry .vma-smile{left:23px!important;top:37px!important;width:14px!important}
+#vdAiEntry .vma-pencil{right:0!important;bottom:0!important;font-size:19px!important}
+
+/* Support card inside the chat must never spill outside its conversation width. */
+.vd-inline-support{
+  box-sizing:border-box!important;
+  width:calc(100% - 40px)!important;
+  max-width:calc(100% - 40px)!important;
+  min-width:0!important;
+  overflow:hidden!important;
+}
+.vd-inline-support .vis-actions{
+  width:100%!important;
+  min-width:0!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+.vd-inline-support .vis-actions a{
+  min-width:0!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+}
+.vd-inline-support .vis-actions a span:not(.contact-icon){
+  min-width:0!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+.vd-inline-support .vis-actions a b{
+  flex:0 0 auto!important;
+}
+.vd-inline-support .vis-support{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  overflow:hidden!important;
+}
+.vd-inline-support .vis-support span{
+  min-width:0!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+
+/* Same containment for the older support-card implementation still present in the page. */
+.vcs-inline-contact{
+  box-sizing:border-box!important;
+  max-width:100%!important;
+  min-width:0!important;
+  overflow:hidden!important;
+}
+.vcs-inline-contact .vcs-contact-buttons{
+  width:100%!important;
+  min-width:0!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+.vcs-inline-contact .vcs-contact-buttons a{
+  min-width:0!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+}
+.vcs-inline-contact .vcs-contact-buttons a span:not(.vcs-contact-icon){
+  min-width:0!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+
+/* Phone */
+@media (max-width:560px){
+  #vdAiEntry.vd-ai-entry{
+    right:14px!important;
+    top:57%!important;
+    width:56px!important;
+    height:56px!important;
+    min-width:56px!important;
+    min-height:56px!important;
+  }
+  #vdAiEntry .vd-entry-mascot{
+    width:52px!important;
+    height:52px!important;
+    flex-basis:52px!important;
+  }
+  #vdAiEntry .vma-body{
+    left:4px!important;top:4px!important;width:44px!important;height:44px!important;
+  }
+  #vdAiEntry .vma-eye{top:18px!important;width:4px!important;height:6px!important}
+  #vdAiEntry .vma-eye.e1{left:13px!important}
+  #vdAiEntry .vma-eye.e2{right:13px!important}
+  #vdAiEntry .vma-smile{left:18px!important;top:30px!important;width:11px!important}
+  #vdAiEntry .vma-pencil{font-size:16px!important}
+
+  .vd-inline-support{
+    width:calc(100% - 20px)!important;
+    max-width:calc(100% - 20px)!important;
+    margin-left:10px!important;
+    margin-right:10px!important;
+    padding:14px!important;
+  }
+  .vd-inline-support .vis-actions{
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+  .vd-inline-support .vis-actions a{
+    width:100%!important;
+    min-height:48px!important;
+  }
+
+  .vcs-inline-contact{
+    width:100%!important;
+    max-width:100%!important;
+  }
+  .vcs-inline-contact .vcs-contact-buttons{
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+  .vcs-inline-contact .vcs-contact-buttons a{
+    width:100%!important;
+    min-height:48px!important;
+  }
+}
+
+/* Tablet */
+@media (min-width:561px) and (max-width:900px){
+  #vdAiEntry.vd-ai-entry{
+    right:20px!important;
+    top:56%!important;
+    width:64px!important;
+    height:64px!important;
+    min-width:64px!important;
+    min-height:64px!important;
+  }
+  #vdAiEntry .vd-entry-mascot{
+    width:58px!important;
+    height:58px!important;
+    flex-basis:58px!important;
+  }
+}
+
+/* Laptop / desktop */
+@media (min-width:901px){
+  #vdAiEntry.vd-ai-entry{
+    right:28px!important;
+    top:56%!important;
+  }
+}
+
+/* When the real chat is open, only the open panel remains. */
+body.vd-ai-is-open #vdAiEntry{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+/* Audio controls remain separate from the chatbot. */
+body.vd-ai-is-open .music-toggle{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+</style>
+
+<script id="vd-v50-audio-lifecycle">
+(function(){
+  function stopValoriaAudio(){
+    try{
+      if('speechSynthesis' in window){
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.pause?.();
+        window.speechSynthesis.resume?.();
+      }
+    }catch(e){}
+    try{
+      const btn=document.getElementById('musicToggle');
+      if(btn && btn.classList.contains('on')){
+        btn.click();
+      }
+    }catch(e){}
+    try{
+      if(window.audioCtx && window.audioCtx.state !== 'closed'){
+        window.audioCtx.suspend?.();
+      }
+    }catch(e){}
+  }
+
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden) stopValoriaAudio();
+  },{passive:true});
+
+  window.addEventListener('pagehide',stopValoriaAudio,{passive:true});
+  window.addEventListener('beforeunload',stopValoriaAudio,{passive:true});
+})();
+</script>
+
 </body>
 </html>
