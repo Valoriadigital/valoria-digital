@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Valoria Digital | Creative Design, Printing & 3D Studio</title>
+
+  <meta
+    name="description"
+    content="Valoria Digital is a creative design, printing and 3D studio offering graphic design, branding, poster printing, standee printing, social media design, 3D modelling, product visualization, animation and motion graphics."
+  />
+
+  <meta
+    name="keywords"
+    content="Valoria Digital, graphic design, printing, poster printing, standee printing, branding, social media design, 3D design, 3D modelling, product visualization, motion graphics"
+  />
+
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 22px 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.65);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      opacity: 0.45;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      opacity: 0.65;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      padding: 170px 7vw 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 65%);
+      top: 5%;
+      right: -10%;
+      filter: blur(10px);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      opacity: 0.45;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(60px, 11vw, 160px);
+      line-height: 0.85;
+      letter-spacing: -8px;
+      max-width: 1200px;
+    }
+
+    .hero h1 span {
+      display: block;
+      opacity: 0.3;
+    }
+
+    .hero-text {
+      margin-top: 40px;
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.7;
+      opacity: 0.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 35px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 24px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      transition: 0.3s ease;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      background: #fff;
+      color: #000;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 35px;
+      left: 7vw;
+      font-size: 11px;
+      letter-spacing: 3px;
+      opacity: 0.35;
+      animation: pulse 2s infinite;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 130px 7vw;
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.4;
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: clamp(42px, 7vw, 100px);
+      letter-spacing: -5px;
+      line-height: 0.95;
+      margin-bottom: 60px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .service {
+      min-height: 260px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.5s ease;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.01)
+      );
+    }
+
+    .service:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .service-number {
+      opacity: 0.3;
+      font-size: 12px;
+    }
+
+    .service h3 {
+      font-size: 25px;
+      margin-top: auto;
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.5;
+    }
+
+    /* WORK */
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .work-card {
+      height: 520px;
+      border-radius: 25px;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 30%, #444, transparent 30%),
+        linear-gradient(135deg, #161616, #050505);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.5s ease;
+    }
+
+    .work-card:hover {
+      transform: scale(0.98);
+    }
+
+    .work-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        transparent 40%,
+        rgba(0,0,0,0.9)
+      );
+    }
+
+    .work-info {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      z-index: 2;
+    }
+
+    .work-info h3 {
+      font-size: 35px;
+      margin-bottom: 8px;
+    }
+
+    .work-info p {
+      opacity: 0.5;
+      font-size: 14px;
+    }
+
+    /* PRINT */
+
+    .print-section {
+      background: #f2f2f2;
+      color: #111;
+    }
+
+    .print-section .section-label {
+      color: #111;
+    }
+
+    .print-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid rgba(0,0,0,0.15);
+    }
+
+    .print-item {
+      padding: 30px 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+      font-size: clamp(25px, 4vw, 55px);
+      letter-spacing: -2px;
+      transition: 0.3s ease;
+    }
+
+    .print-item:hover {
+      padding-left: 25px;
+    }
+
+    /* CTA */
+
+    .cta {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(50px, 9vw, 130px);
+      line-height: 0.9;
+      letter-spacing: -6px;
+      max-width: 1100px;
+    }
+
+    .cta p {
+      margin-top: 35px;
+      max-width: 550px;
+      opacity: 0.5;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 7vw;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      opacity: 0.5;
+      font-size: 13px;
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(0,0);
+      }
+
+      50% {
+        transform: translate(-40px,30px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.25;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-left: 6vw;
+        padding-right: 6vw;
+      }
+
+      .hero h1 {
+        font-size: 18vw;
+        letter-spacing: -5px;
+      }
+
+      section {
+        padding: 90px 6vw;
+      }
+
+      .services,
+      .work-grid,
+      .print-list {
+        grid-template-columns: 1fr;
+      }
+
+      .work-card {
+        height: 400px;
+      }
+
+      .section-title {
+        letter-spacing: -3px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a href="#" class="logo">
+      VALORIA<span> DIGITAL</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#printing">Printing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="eyebrow reveal">
+      Creative Studio • Print • 3D • Digital
+    </div>
+
+    <h1 class="reveal">
+      WE MAKE
+      <span>BRANDS MOVE.</span>
+    </h1>
+
+    <p class="hero-text reveal">
+      Valoria Digital creates bold visual identities, promotional designs,
+      premium printing solutions and 3D experiences for modern brands.
+    </p>
+
+    <div class="hero-buttons reveal">
+      <a href="#work" class="btn">Explore Work</a>
+      <a href="#contact" class="btn">Start a Project</a>
+    </div>
+
+    <div class="scroll">
+      SCROLL ↓
+    </div>
+
+  </header>
+
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="section-label reveal">
+      01 — What We Do
+    </div>
+
+    <h2 class="section-title reveal">
+      DESIGN.<br>
+      PRINT.<br>
+      CREATE.
+    </h2>
+
+    <div class="services">
+
+      <div class="service reveal">
+        <div class="service-number">01</div>
+        <div>
+          <h3>Graphic Design</h3>
+          <p>
+            Creative visual communication for brands, businesses and campaigns.
+          </p>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-number">02</div>
+        <div>
+          <h3>Branding</h3>
+          <p>
+            Logos, identities and visual systems built around your brand.
+          </p>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-number">03</div>
+        <div>
+          <h3>Social Media</h3>
+          <p>
+            Scroll-stopping social media creatives and campaign visuals.
+          </p>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-number">04</div>
+        <div>
+          <h3>3D Design</h3>
+          <p>
+            3D modelling, product visualization, environments and CGI.
+          </p>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-number">05</div>
+        <div>
+          <h3>Motion Graphics</h3>
+          <p>
+            Animated visuals, product animation and engaging motion content.
+          </p>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-number">06</div>
+        <div>
+          <h3>Print & Promotion</h3>
+          <p>
+            Posters, standees, banners, brochures and custom promotional materials.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WORK -->
+
+  <section id="work">
+
+    <div class="section-label reveal">
+      02 — Selected Work
+    </div>
+
+    <h2 class="section-title reveal">
+      SOME THINGS<br>
+      WE'VE MADE.
+    </h2>
+
+    <div class="work-grid">
+
+      <div class="work-card reveal">
+        <div class="work-info">
+          <h3>Brand Design</h3>
+          <p>Identity • Visual Direction</p>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-info">
+          <h3>Product Visuals</h3>
+          <p>3D • CGI • Advertising</p>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-info">
+          <h3>Social Media</h3>
+          <p>Creative • Campaigns</p>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-info">
+          <h3>3D & Motion</h3>
+          <p>Animation • Visualization</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRINTING -->
+
+  <section id="printing" class="print-section">
+
+    <div class="section-label reveal">
+      03 — Printing
+    </div>
+
+    <h2 class="section-title reveal">
+      PRINT IT.<br>
+      MAKE IT<br>
+      NOTICEABLE.
+    </h2>
+
+    <div class="print-list">
+
+      <div class="print-item reveal">A4 Posters</div>
+      <div class="print-item reveal">A3 Posters</div>
+      <div class="print-item reveal">Custom Size Posters</div>
+      <div class="print-item reveal">Standee Printing</div>
+      <div class="print-item reveal">Banner Printing</div>
+      <div class="print-item reveal">Brochures</div>
+      <div class="print-item reveal">Flyers</div>
+      <div class="print-item reveal">Business Cards</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 3D -->
+
+  <section>
+
+    <div class="section-label reveal">
+      04 — 3D & Digital
+    </div>
+
+    <h2 class="section-title reveal">
+      FROM PIXELS<br>
+      TO REALITY.
+    </h2>
+
+    <div class="services">
+
+      <div class="service reveal">
+        <div class="service-number">01</div>
+        <div>
+          <h3>3D Modelling</h3>
+          <p>Detailed 3D assets and product models.</p>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-number">02</div>
+        <div>
+          <h3>Product Visualization</h3>
+          <p>Photorealistic product renders for marketing.</p>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-number">03</div>
+        <div>
+          <h3>3D Animation</h3>
+          <p>Motion-driven product and brand experiences.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section id="contact" class="cta">
+
+    <div class="section-label reveal">
+      05 — Let's Work Together
+    </div>
+
+    <h2 class="reveal">
+      HAVE AN IDEA?
+      <br>
+      LET'S BUILD IT.
+    </h2>
+
+    <p class="reveal">
+      Tell us what you're looking for and let's create something
+      visually memorable for your brand.
+    </p>
+
+    <div class="hero-buttons reveal">
+
+      <a href="https://wa.me/" class="btn">
+        WhatsApp
+      </a>
+
+      <a href="mailto:hello@valoriadigital.com" class="btn">
+        Email
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div>© 2026 Valoria Digital</div>
+    <div>Design • Print • 3D • Digital</div>
+  </footer>
+
+
+  <!-- SCROLL ANIMATION -->
+
+  <script>
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+  </script>
+
+</body>
+</html>
