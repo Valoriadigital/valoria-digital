@@ -2709,6 +2709,345 @@ if(/support|help|problem|issue|query|enquiry|inquiry|team/.test(s)){
       <a href="https://www.justdial.com/Delhi/Valoria-Digital-Shahdara/011PXX11-XX11-211126124027-Q6Y8_BZDET" class="btn magnetic" target="_blank" rel="noopener">JustDial</a>
       <a href="https://www.instagram.com/valoriadigital/?hl=en" class="btn magnetic" target="_blank" rel="noopener">Instagram</a>
     </div>
+  <!-- VALORIA DIGITAL — ENQUIRY FORM -->
+<div class="vd-lead-wrap reveal">
+  <div class="vd-lead-card">
+
+    <div class="vd-lead-heading">
+      <span>START A PROJECT</span>
+      <h3>Tell us what you're building.</h3>
+      <p>Share a few details and we'll get back to you.</p>
+    </div>
+
+    <form id="valoriaLeadForm"
+          action="https://formsubmit.co/ajax/valoriadigital1@gmail.com"
+          method="POST">
+
+      <input type="hidden" name="_subject" value="New Valoria Digital Website Enquiry">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <!-- Lead source information -->
+      <input type="hidden" name="source" id="leadSource">
+      <input type="hidden" name="medium" id="leadMedium">
+      <input type="hidden" name="campaign" id="leadCampaign">
+      <input type="hidden" name="referrer" id="leadReferrer">
+      <input type="hidden" name="landing_page" id="leadLandingPage">
+
+      <!-- Anti-spam honeypot -->
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="vd-form-grid">
+
+        <div class="vd-field">
+          <label>Name *</label>
+          <input type="text" name="name" required placeholder="Your name">
+        </div>
+
+        <div class="vd-field">
+          <label>Phone *</label>
+          <input type="tel"
+                 name="phone"
+                 required
+                 placeholder="+91 XXXXX XXXXX"
+                 pattern="[0-9+\-\s()]{8,}">
+        </div>
+
+        <div class="vd-field">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="you@email.com">
+        </div>
+
+        <div class="vd-field">
+          <label>Service</label>
+          <select name="service">
+            <option value="">Select a service</option>
+            <option>Graphic Design</option>
+            <option>Branding</option>
+            <option>Social Media</option>
+            <option>Print & Promotion</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="vd-field">
+        <label>Project Requirement</label>
+        <textarea name="requirement"
+                  rows="5"
+                  placeholder="Tell us briefly about your project..."></textarea>
+      </div>
+
+      <button type="submit" class="vd-lead-submit">
+        SEND ENQUIRY →
+      </button>
+
+      <div id="vdLeadStatus" class="vd-lead-status"></div>
+
+    </form>
+  </div>
+</div>
+
+<style>
+.vd-lead-wrap{
+  width:100%;
+  max-width:900px;
+  margin:70px auto 20px;
+}
+
+.vd-lead-card{
+  padding:clamp(24px,4vw,46px);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;
+  background:rgba(255,255,255,.045);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+
+.vd-lead-heading span{
+  display:block;
+  margin-bottom:10px;
+  font-size:11px;
+  letter-spacing:.18em;
+  opacity:.6;
+}
+
+.vd-lead-heading h3{
+  margin:0;
+  font-size:clamp(28px,4vw,46px);
+  line-height:1.05;
+}
+
+.vd-lead-heading p{
+  margin:14px 0 30px;
+  opacity:.65;
+}
+
+.vd-form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.vd-field{
+  margin-bottom:18px;
+}
+
+.vd-field label{
+  display:block;
+  margin-bottom:8px;
+  font-size:12px;
+  letter-spacing:.08em;
+  opacity:.7;
+}
+
+.vd-field input,
+.vd-field select,
+.vd-field textarea{
+  width:100%;
+  box-sizing:border-box;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:12px;
+  padding:14px 15px;
+  background:rgba(0,0,0,.18);
+  color:inherit;
+  font:inherit;
+  outline:none;
+}
+
+.vd-field textarea{
+  resize:vertical;
+  min-height:120px;
+}
+
+.vd-field input:focus,
+.vd-field select:focus,
+.vd-field textarea:focus{
+  border-color:rgba(255,255,255,.42);
+}
+
+.vd-field select option{
+  background:#111;
+  color:#fff;
+}
+
+.vd-lead-submit{
+  width:100%;
+  border:0;
+  border-radius:12px;
+  padding:16px 20px;
+  cursor:pointer;
+  font:inherit;
+  font-weight:600;
+  letter-spacing:.04em;
+  background:#fff;
+  color:#111;
+  transition:transform .2s ease,opacity .2s ease;
+}
+
+.vd-lead-submit:hover{
+  transform:translateY(-2px);
+}
+
+.vd-lead-submit:disabled{
+  opacity:.55;
+  cursor:wait;
+}
+
+.vd-lead-status{
+  min-height:22px;
+  margin-top:14px;
+  font-size:13px;
+  opacity:.8;
+}
+
+@media(max-width:650px){
+  .vd-form-grid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .vd-lead-wrap{
+    margin-top:45px;
+  }
+
+  .vd-lead-card{
+    border-radius:18px;
+  }
+}
+</style>
+
+<script>
+(function(){
+
+  const form = document.getElementById('valoriaLeadForm');
+  const status = document.getElementById('vdLeadStatus');
+
+  if(!form) return;
+
+  const params = new URLSearchParams(window.location.search);
+
+  let source = params.get('utm_source') || '';
+  let medium = params.get('utm_medium') || '';
+  let campaign = params.get('utm_campaign') || '';
+
+  if(!source){
+    if(document.referrer){
+      try{
+        source = new URL(document.referrer).hostname;
+        medium = 'referral';
+      }catch(e){}
+    }else{
+      source = 'direct';
+      medium = 'none';
+    }
+  }
+
+  document.getElementById('leadSource').value = source;
+  document.getElementById('leadMedium').value = medium;
+  document.getElementById('leadCampaign').value = campaign;
+  document.getElementById('leadReferrer').value = document.referrer || 'direct';
+  document.getElementById('leadLandingPage').value = window.location.href.split('?')[0];
+
+  form.addEventListener('submit', async function(e){
+
+    e.preventDefault();
+
+    const button = form.querySelector('button[type="submit"]');
+
+    button.disabled = true;
+    button.textContent = 'SENDING...';
+    status.textContent = '';
+
+    const formData = new FormData(form);
+
+    const service = formData.get('service') || 'Not specified';
+
+    try{
+
+      const response = await fetch(form.action,{
+        method:'POST',
+        body:formData,
+        headers:{
+          'Accept':'application/json'
+        }
+      });
+
+      if(!response.ok){
+        throw new Error('Submission failed');
+      }
+
+      /* GA4 — NO PERSONAL INFORMATION IS SENT */
+      if(typeof gtag === 'function'){
+
+        gtag('event','generate_lead',{
+          lead_source:source,
+          lead_medium:medium,
+          lead_campaign:campaign,
+          service:service
+        });
+
+        gtag('event','lead_form_submitted',{
+          lead_source:source,
+          service:service
+        });
+      }
+
+      status.textContent = 'Enquiry sent successfully. Opening WhatsApp...';
+
+      const name = formData.get('name');
+      const phone = formData.get('phone');
+      const email = formData.get('email');
+      const requirement = formData.get('requirement') || '';
+
+      const whatsappMessage =
+        `Hi Valoria Digital, I submitted an enquiry through your website.%0A%0A` +
+        `Name: ${encodeURIComponent(name)}%0A` +
+        `Phone: ${encodeURIComponent(phone)}%0A` +
+        `Email: ${encodeURIComponent(email || 'Not provided')}%0A` +
+        `Service: ${encodeURIComponent(service)}%0A` +
+        `Requirement: ${encodeURIComponent(requirement || 'Not provided')}`;
+
+      setTimeout(function(){
+        window.open(
+          `https://wa.me/919953429728?text=${whatsappMessage}`,
+          '_blank',
+          'noopener'
+        );
+      },700);
+
+      form.reset();
+
+      document.getElementById('leadSource').value = source;
+      document.getElementById('leadMedium').value = medium;
+      document.getElementById('leadCampaign').value = campaign;
+      document.getElementById('leadReferrer').value = document.referrer || 'direct';
+      document.getElementById('leadLandingPage').value = window.location.href.split('?')[0];
+
+      button.disabled = false;
+      button.textContent = 'SEND ENQUIRY →';
+
+    }catch(error){
+
+      if(typeof gtag === 'function'){
+        gtag('event','lead_form_error',{
+          lead_source:source,
+          lead_medium:medium
+        });
+      }
+
+      status.textContent =
+        'Something went wrong. Please contact us on WhatsApp.';
+
+      button.disabled = false;
+      button.textContent = 'SEND ENQUIRY →';
+    }
+
+  });
+
+})();
+</script>
   </section>
 
   <footer>
